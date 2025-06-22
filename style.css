@@ -1,0 +1,60 @@
+/* Sıfırla */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tüm ekranı ortala */
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Ana kutu */
+.container {
+  width: 90%;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Metin kısmı */
+.metin {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+/* Butonları taşıyan kutu */
+.butonlar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Butonlar */
+.buton {
+  flex: 1 1 100px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buton:hover {
+  background-color: #357ABD;
+}

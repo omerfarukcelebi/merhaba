@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<title>Butonlar Ortada Başlangıç + Rastgele Hareket</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #f0f0f5;
+
+    /* Ortalamak için flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Yazı ortada */
+  #ortadakiYazi {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: #e0d7f5;
+    user-select: none;
+    pointer-events: none;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Butonlar yan yana ortalanmış */
+  #butonlarKapsayici {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  /* Butonlar */
+  button {
+    padding: 12px 28px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    background-color: #9f7aea;
+    color: white;
+    user-select: none;
+    transition: none; /* animasyon kapalı */
+    min-width: 120px;
+
+    /* Başlangıçta statik, position normal */
+    position: static;
+  }
+  button:hover {
+    background-color: #7c3aed;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.6);
+  }
+  button:active {
+    background-color: #6b21a8;
+  }
+
+  #btn3 {
+    background-color: #4c51bf;
+    cursor: default;
+  }
+  #btn3:hover {
+    background-color: #4c51bf;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    #ortadakiYazi {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      min-width: 100px;
+    }
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit; /* Buton rengini koru */
+  }
+</style>
+</head>
+<body>
+
+  <div id="ortadakiYazi">Sence Ömer Hangisini Trcih Ediyo</div>
+
+  <div id="butonlarKapsayici">
+    <button id="btn1">Sarışın</button>
+    <button id="btn2">Kumral</button>
+    <button id="btn3"><a href="tebrikler.html" class="btn3">Esmer</a></button>
+  </div>
+
+<script>
+  const btn1 = document.getElementById('btn1');
+  const btn2 = document.getElementById('btn2');
+  const btn3 = document.getElementById('btn3');
+
+  function rastgeleKonumaGit(eleman) {
+    const ekranGenislik = window.innerWidth;
+    const ekranYukseklik = window.innerHeight;
+
+    const genislik = eleman.offsetWidth;
+    const yukseklik = eleman.offsetHeight;
+
+    // Rastgele konum ekran içinde, butonun tamamen görünmesi için sınırları ayarla
+    const maxX = ekranGenislik - genislik;
+    const maxY = ekranYukseklik - yukseklik;
+
+    const rastgeleX = Math.floor(Math.random() * maxX);
+    const rastgeleY = Math.floor(Math.random() * maxY);
+
+    // Mutlak konuma geç ve konum ayarla
+    eleman.style.position = 'absolute';
+    eleman.style.left = rastgeleX + 'px';
+    eleman.style.top = rastgeleY + 'px';
+  }
+
+  btn1.addEventListener('click', () => rastgeleKonumaGit(btn1));
+  btn2.addEventListener('click', () => rastgeleKonumaGit(btn2));
+  // btn3 sabit, hareket etmez
+</script>
+
+</body>
+</html>
